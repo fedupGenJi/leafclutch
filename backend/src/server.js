@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const { initDatabase } = require('./db');
 const authRoutes = require('./routes/auth.routes');
+const paymentRoutes = require('./routes/payment.routes');
 
 async function main() {
   const dbReport = await initDatabase();
@@ -17,6 +18,7 @@ async function main() {
 
   app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
   app.use('/api/auth', authRoutes);
+  app.use('/api/payment', paymentRoutes);
 
   app.use((req, res) => res.status(404).json({ message: 'Not found.' }));
   app.use((err, req, res, next) => {

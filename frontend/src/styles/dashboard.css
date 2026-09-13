@@ -242,3 +242,66 @@
     align-items: stretch;
   }
 }
+
+/* ---------- payment result popup ---------- */
+
+.payment-result-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 36px 32px 32px;
+  text-align: center;
+  border-top: 5px solid var(--success);
+}
+
+.payment-result-card.payment-result-error {
+  border-top-color: var(--danger);
+}
+
+.payment-result-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-result-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.payment-result-success .payment-result-icon {
+  background: #e9f7f1;
+  color: var(--success);
+}
+
+.payment-result-error .payment-result-icon {
+  background: #fbeceb;
+  color: var(--danger);
+}
+
+.payment-result-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.payment-result-success .payment-result-title {
+  color: var(--success);
+}
+
+.payment-result-error .payment-result-title {
+  color: var(--danger);
+}
+
+.payment-result-message {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
