@@ -65,7 +65,7 @@ export default function Signup() {
       <div className="container auth-nav">
         <Link to="/" className="mark">
           <span className="mark-swatch" />
-          LeafTech
+          LeafClutch
         </Link>
       </div>
 

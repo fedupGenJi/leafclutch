@@ -51,7 +51,7 @@ export default function PaymentStatus() {
         <div className="container dashboard-nav-inner">
           <Link to="/" className="mark">
             <span className="mark-swatch" />
-            LeafTech
+            LeafClutch
           </Link>
         </div>
       </header>

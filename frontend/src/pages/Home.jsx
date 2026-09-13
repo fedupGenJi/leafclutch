@@ -1,56 +1,97 @@
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
-function HeroVisual() {
+function BrandMark() {
   return (
-    <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="70" y="40" width="280" height="340" rx="16" stroke="#e3e5ee" strokeWidth="2" />
-      <rect x="70" y="40" width="280" height="46" rx="16" fill="#eef2fe" />
-      <circle cx="95" cy="63" r="5" fill="#2a55e5" />
-      <circle cx="115" cy="63" r="5" fill="#c7d3fb" />
-      <circle cx="135" cy="63" r="5" fill="#c7d3fb" />
-      <line x1="100" y1="120" x2="220" y2="120" stroke="#2a55e5" strokeWidth="3" strokeLinecap="round" />
-      <line x1="100" y1="150" x2="320" y2="150" stroke="#e3e5ee" strokeWidth="3" strokeLinecap="round" />
-      <line x1="100" y1="180" x2="290" y2="180" stroke="#e3e5ee" strokeWidth="3" strokeLinecap="round" />
-      <line x1="100" y1="210" x2="240" y2="210" stroke="#e3e5ee" strokeWidth="3" strokeLinecap="round" />
-      <rect x="100" y="250" width="220" height="100" rx="10" fill="#eef2fe" />
-      <path d="M140 300l24 24 56-56" stroke="#2a55e5" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="brand-badge">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M6 18c-1.2-4.8 1.6-10.2 8.4-11.6C15.6 11 13.6 15.8 6 18z"
+          stroke="#fff"
+          strokeWidth="1.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path d="M6.5 17.5L11 13" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" />
+      </svg>
+    </span>
+  );
+}
+
+function ProjectPreview() {
+  return (
+    <div className="demo-card">
+      <div className="demo-titlebar">
+        <span className="demo-dots" aria-hidden="true">
+          <span className="demo-dot red" />
+          <span className="demo-dot yellow" />
+          <span className="demo-dot green" />
+        </span>
+        <span className="demo-filename">Project_Dashboard.js</span>
+      </div>
+      <div className="demo-body">
+        <span className="demo-check">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.5" stroke="var(--blue)" strokeWidth="1.6" />
+            <path d="M7.5 12.5l3 3 6-6.5" stroke="var(--blue)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <h3 className="demo-title">Project Completed Successfully</h3>
+        <p className="demo-sub">Hands-on practical deployment verified.</p>
+      </div>
+    </div>
   );
 }
 
 export default function Home() {
   return (
-    <div className="container">
-      <nav className="home-nav">
-        <span className="mark">
-          <span className="mark-swatch" />
-          LeafTech
+    <div className="home-page">
+      <header className="container site-nav">
+        <span className="brand">
+          <BrandMark />
+          LeafClutch
         </span>
-      </nav>
+        <div className="nav-actions">
+          <Link to="/login" className="nav-login">
+            Log in
+          </Link>
+          <Link to="/signup" className="btn btn-primary btn-compact">
+            Create account
+          </Link>
+        </div>
+      </header>
 
-      <section className="hero">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="hero-eyebrow">Learn by building, not just watching</p>
-            <h1 className="hero-title">LeafTech Technology</h1>
-            <p className="hero-motto">
-              Upskill your technical skills with hands on experience in projects.
+      <main className="container">
+        <section className="hero-showcase">
+          <div className="hero-panel-copy">
+            <p className="hero-tag">
+              <span className="hero-tag-badge">New approach</span>
+              <span className="hero-tag-text">Learn by building, not just watching</span>
             </p>
-            <div className="hero-actions">
+            <h1 className="hero-heading">LeafClutch Technology</h1>
+            <p className="hero-desc">
+              Upskill your technical skills with hands on experience in projects. Build
+              real-world solutions under expert guidance.
+            </p>
+            <div className="hero-cta-row">
               <Link to="/signup" className="btn btn-primary">
                 Create account
+                <span aria-hidden="true">&rarr;</span>
               </Link>
               <Link to="/login" className="btn btn-secondary">
                 Log in
               </Link>
             </div>
           </div>
-          <div className="hero-visual">
-            <HeroVisual />
+          <div className="hero-panel-demo">
+            <ProjectPreview />
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <p>&copy; 2026 LeafClutch Technology. Built for practitioners.</p>
+      </footer>
     </div>
   );
 }

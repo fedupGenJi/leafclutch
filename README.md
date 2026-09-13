@@ -1,4 +1,4 @@
-# LeafTech Technology
+# LeafClutch Technology
 
 Upskilling platform scaffold: Express + Postgres backend, React (Vite)
 frontend. This first milestone covers database bootstrapping plus

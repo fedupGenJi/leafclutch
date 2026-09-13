@@ -34,7 +34,7 @@ export default function Login() {
       <div className="container auth-nav">
         <Link to="/" className="mark">
           <span className="mark-swatch" />
-          LeafTech
+          LeafClutch
         </Link>
       </div>
 
@@ -42,7 +42,7 @@ export default function Login() {
         <div className="auth-card">
           <h1 className="auth-heading">Welcome back</h1>
           <p className="auth-sub">
-            New to LeafTech? <Link to="/signup">Create an account</Link>
+            New to LeafClutch? <Link to="/signup">Create an account</Link>
           </p>
 
           {serverError && <div className="banner banner-error">{serverError}</div>}

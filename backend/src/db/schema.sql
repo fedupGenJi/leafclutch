@@ -1,4 +1,4 @@
--- LeafTech Technology schema
+-- LeafClutch Technology schema
 
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,

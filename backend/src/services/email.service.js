@@ -20,12 +20,12 @@ async function sendUserRegistrationEmail({ to, name, courseName }) {
   await getTransporter().sendMail({
     from: process.env.SMTP_FROM,
     to,
-    subject: `You're enrolled — ${courseName} at LeafTech Technology`,
+    subject: `You're enrolled — ${courseName} at LeafClutch Technology`,
     text:
       `Hi ${name},\n\n` +
       `You have been added to our system for the ${courseName} course. ` +
       `Our moderators will reach out and lead you through the next steps shortly.\n\n` +
-      `— LeafTech Technology`
+      `— LeafClutch Technology`
   });
 }
 
