@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import PaymentResultModal from '../components/PaymentResultModal';
+import BrandIcon from '../components/BrandMark';
 import { verifyKhaltiPayment, extractError } from '../api/client';
 import '../styles/dashboard.css';
 
@@ -49,8 +50,8 @@ export default function PaymentStatus() {
     <div className="dashboard">
       <header className="dashboard-nav">
         <div className="container dashboard-nav-inner">
-          <Link to="/" className="mark">
-            <span className="mark-swatch" />
+          <Link to="/" className="brand">
+            <BrandIcon />
             LeafClutch
           </Link>
         </div>

@@ -8,11 +8,13 @@
   border-bottom: 1px solid var(--border);
 }
 
-.dashboard-nav-inner {
+.dashboard-nav .dashboard-nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 18px 32px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .dashboard-main {
@@ -57,7 +59,7 @@
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  min-width: 220px;
+  min-width: 280px;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 10px;

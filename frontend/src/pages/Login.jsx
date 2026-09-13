@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { login, extractError } from '../api/client';
+import BrandIcon from '../components/BrandMark';
 import '../styles/auth.css';
 
 export default function Login() {
@@ -31,54 +32,52 @@ export default function Login() {
 
   return (
     <div className="auth-page">
-      <div className="container auth-nav">
-        <Link to="/" className="mark">
-          <span className="mark-swatch" />
-          LeafClutch
-        </Link>
-      </div>
-
-      <div className="auth-wrap">
-        <div className="auth-card">
-          <h1 className="auth-heading">Welcome back</h1>
-          <p className="auth-sub">
-            New to LeafClutch? <Link to="/signup">Create an account</Link>
-          </p>
-
-          {serverError && <div className="banner banner-error">{serverError}</div>}
-
-          <form onSubmit={handleSubmit} noValidate>
-            <div className="field">
-              <label htmlFor="email">Gmail address</label>
-              <input
-                id="email"
-                type="email"
-                value={form.email}
-                onChange={(e) => update('email', e.target.value)}
-                placeholder="you@gmail.com"
-                autoComplete="email"
-                required
-              />
-            </div>
-
-            <div className="field">
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                type="password"
-                value={form.password}
-                onChange={(e) => update('password', e.target.value)}
-                placeholder="Your password"
-                autoComplete="current-password"
-                required
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary btn-block" disabled={submitting}>
-              {submitting ? 'Logging in…' : 'Log in'}
-            </button>
-          </form>
+      <div className="auth-card">
+        <div className="auth-brand">
+          <Link to="/" className="brand">
+            <BrandIcon />
+            LeafClutch
+          </Link>
         </div>
+
+        <h1 className="auth-heading">Welcome back</h1>
+        <p className="auth-sub">
+          New to LeafClutch? <Link to="/signup">Create an account</Link>
+        </p>
+
+        {serverError && <div className="banner banner-error">{serverError}</div>}
+
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="field">
+            <label htmlFor="email">Gmail address</label>
+            <input
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={(e) => update('email', e.target.value)}
+              placeholder="you@gmail.com"
+              autoComplete="email"
+              required
+            />
+          </div>
+
+          <div className="field">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={form.password}
+              onChange={(e) => update('password', e.target.value)}
+              placeholder="Your password"
+              autoComplete="current-password"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary btn-block" disabled={submitting}>
+            {submitting ? 'Logging in…' : 'Log in'}
+          </button>
+        </form>
       </div>
     </div>
   );

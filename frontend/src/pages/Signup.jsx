@@ -9,6 +9,7 @@ import {
   isValidPhoneDigits
 } from '../utils/validators';
 import { signup, extractError } from '../api/client';
+import BrandIcon from '../components/BrandMark';
 import '../styles/auth.css';
 
 const initialTouched = { name: false, email: false, phone: false, password: false };
@@ -62,23 +63,22 @@ export default function Signup() {
 
   return (
     <div className="auth-page">
-      <div className="container auth-nav">
-        <Link to="/" className="mark">
-          <span className="mark-swatch" />
-          LeafClutch
-        </Link>
-      </div>
+      <div className="auth-card">
+        <div className="auth-brand">
+          <Link to="/" className="brand">
+            <BrandIcon />
+            LeafClutch
+          </Link>
+        </div>
 
-      <div className="auth-wrap">
-        <div className="auth-card">
-          <h1 className="auth-heading">Create your account</h1>
-          <p className="auth-sub">
-            Already learning with us? <Link to="/login">Log in</Link>
-          </p>
+        <h1 className="auth-heading">Create your account</h1>
+        <p className="auth-sub">
+          Already learning with us? <Link to="/login">Log in</Link>
+        </p>
 
-          {serverError && <div className="banner banner-error">{serverError}</div>}
+        {serverError && <div className="banner banner-error">{serverError}</div>}
 
-          <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} noValidate>
             <div className="field">
               <label htmlFor="name">Full name</label>
               <input
@@ -155,8 +155,7 @@ export default function Signup() {
             <button type="submit" className="btn btn-primary btn-block" disabled={submitting}>
               {submitting ? 'Creating account…' : 'Create account'}
             </button>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ProfileMenu from '../components/ProfileMenu';
 import CourseIcon from '../components/CourseIcon';
 import CourseModal from '../components/CourseModal';
+import BrandIcon from '../components/BrandMark';
 import { COURSES, randomPrice } from '../data/courses';
 import '../styles/dashboard.css';
 
@@ -32,8 +33,8 @@ export default function Dashboard() {
     <div className="dashboard">
       <header className="dashboard-nav">
         <div className="container dashboard-nav-inner">
-          <Link to="/" className="mark">
-            <span className="mark-swatch" />
+          <Link to="/" className="brand">
+            <BrandIcon />
             LeafClutch
           </Link>
           <ProfileMenu user={user} />

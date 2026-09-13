@@ -13,32 +13,6 @@
   justify-content: space-between;
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 17px;
-  color: var(--ink);
-}
-
-.brand-badge {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  border-radius: 9px;
-  background: var(--blue);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-badge svg {
-  width: 18px;
-  height: 18px;
-}
-
 .nav-actions {
   display: flex;
   align-items: center;
@@ -64,7 +38,7 @@
 
 /* ---------- hero showcase card ---------- */
 
-main.container {
+.home-page main.container {
   flex: 1;
   display: flex;
   align-items: center;

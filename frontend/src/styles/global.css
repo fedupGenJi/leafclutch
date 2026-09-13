@@ -64,6 +64,51 @@ img, svg {
   padding: 0 24px;
 }
 
+/* ---------- shared brand mark ---------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-badge {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.brand-lg {
+  font-size: 19px;
+  gap: 12px;
+}
+
+.brand-lg .brand-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+.brand-lg .brand-badge svg {
+  width: 21px;
+  height: 21px;
+}
+
 /* ---------- buttons ---------- */
 
 .btn {
