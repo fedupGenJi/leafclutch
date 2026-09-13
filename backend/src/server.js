@@ -9,7 +9,7 @@ async function main() {
   const dbReport = await initDatabase();
   console.log(
     `[db] ready — created: [${dbReport.created.join(', ') || 'none'}], ` +
-    `existing: [${dbReport.existing.join(', ') || 'none'}], cleared: [${dbReport.cleared.join(', ')}]`
+    `existing: [${dbReport.existing.join(', ') || 'none'}], cleared: [${dbReport.cleared.join(', ') || 'none'}]`
   );
 
   const app = express();

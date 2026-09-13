@@ -33,10 +33,19 @@ async function initDatabase() {
     else report.created.push(table);
   }
 
-  // khalti_temp only ever holds in-flight payment attempts, so every
-  // fresh boot starts clean rather than carrying stale pidx rows.
-  await pool.query('TRUNCATE TABLE khalti_temp RESTART IDENTITY');
-  report.cleared.push('khalti_temp');
+  // DISABLED: this used to TRUNCATE khalti_temp on every boot. That meant
+  // any restart (crash, deploy, or free-tier spin-down) happening between
+  // a user starting a Khalti payment and returning from it would wipe the
+  // in-flight pidx row, causing verification to fail even for real,
+  // completed payments. Turned off for now — investigate before re-enabling.
+  //
+  // Safer version, once we do want cleanup: only remove attempts old
+  // enough to be genuinely abandoned, not everything on every boot.
+  //
+  // await pool.query(
+  //   "DELETE FROM khalti_temp WHERE created_at < now() - interval '24 hours'"
+  // );
+  // report.cleared.push('khalti_temp (rows older than 24h)');
 
   return report;
 }
