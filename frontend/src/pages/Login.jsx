@@ -21,7 +21,7 @@ export default function Login() {
       const { token, user } = await login(form);
       localStorage.setItem('leaftech_token', token);
       localStorage.setItem('leaftech_user', JSON.stringify(user));
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       setServerError(extractError(err));
     } finally {

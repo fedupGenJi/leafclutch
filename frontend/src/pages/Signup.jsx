@@ -52,7 +52,7 @@ export default function Signup() {
       });
       localStorage.setItem('leaftech_token', token);
       localStorage.setItem('leaftech_user', JSON.stringify(user));
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       setServerError(extractError(err));
     } finally {
