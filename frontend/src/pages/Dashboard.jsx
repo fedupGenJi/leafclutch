@@ -6,6 +6,7 @@ import CourseModal from '../components/CourseModal';
 import BrandIcon from '../components/BrandMark';
 import { COURSES, randomPrice } from '../data/courses';
 import '../styles/dashboard.css';
+import { isLoggedIn } from '../api/client';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Dashboard() {
     <div className="dashboard">
       <header className="dashboard-nav">
         <div className="container dashboard-nav-inner">
-          <Link to="/" className="brand">
+          <Link to={isLoggedIn() ? '/dashboard' : '/'} className="brand">
             <BrandIcon />
             LeafClutch
           </Link>

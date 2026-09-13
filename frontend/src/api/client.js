@@ -32,4 +32,8 @@ export function extractError(err) {
   return err?.response?.data?.message || 'Something went wrong. Please try again.';
 }
 
+export function isLoggedIn() {
+  return Boolean(localStorage.getItem('leaftech_token'));
+}
+
 export default client;

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import BrandIcon from '../components/BrandMark';
 import '../styles/home.css';
+import { isLoggedIn } from '../api/client';
 
 function ProjectPreview() {
   return (
@@ -31,10 +32,10 @@ export default function Home() {
   return (
     <div className="home-page">
       <header className="container site-nav">
-        <span className="brand">
+        <Link to={isLoggedIn() ? '/dashboard' : '/'} className="brand">
           <BrandIcon />
           LeafClutch
-        </span>
+        </Link>
         <div className="nav-actions">
           <Link to="/login" className="nav-login">
             Log in

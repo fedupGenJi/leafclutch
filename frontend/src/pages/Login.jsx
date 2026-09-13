@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { login, extractError } from '../api/client';
 import BrandIcon from '../components/BrandMark';
 import '../styles/auth.css';
+import { isLoggedIn } from '../api/client';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ export default function Login() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-brand">
-          <Link to="/" className="brand">
+          <Link to={isLoggedIn() ? '/dashboard' : '/'} className="brand">
             <BrandIcon />
             LeafClutch
           </Link>

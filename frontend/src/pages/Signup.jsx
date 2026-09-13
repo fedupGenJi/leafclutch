@@ -11,6 +11,7 @@ import {
 import { signup, extractError } from '../api/client';
 import BrandIcon from '../components/BrandMark';
 import '../styles/auth.css';
+import { isLoggedIn } from '../api/client';
 
 const initialTouched = { name: false, email: false, phone: false, password: false };
 
@@ -65,7 +66,7 @@ export default function Signup() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-brand">
-          <Link to="/" className="brand">
+          <Link to={isLoggedIn() ? '/dashboard' : '/'} className="brand">
             <BrandIcon />
             LeafClutch
           </Link>
