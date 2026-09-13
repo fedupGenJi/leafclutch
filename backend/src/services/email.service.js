@@ -1,23 +1,16 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-let transporter = null;
+let resend = null;
 
-function getTransporter() {
-  if (!transporter) {
-    const port = Number(process.env.SMTP_PORT) || 587;
-    transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port,
-      secure: port === 465,
-      requireTLS: port !== 465,
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
-    });
+function getClient() {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
   }
-  return transporter;
+  return resend;
 }
 
 async function sendUserRegistrationEmail({ to, name, courseName }) {
-  await getTransporter().sendMail({
+  const { error } = await getClient().emails.send({
     from: process.env.SMTP_FROM,
     to,
     subject: `You're enrolled — ${courseName} at LeafClutch Technology`,
@@ -27,11 +20,12 @@ async function sendUserRegistrationEmail({ to, name, courseName }) {
       `Our moderators will reach out and lead you through the next steps shortly.\n\n` +
       `— LeafClutch Technology`
   });
+  if (error) throw new Error(error.message || 'Resend failed to send user confirmation.');
 }
 
 async function sendAdminNotificationEmail({ name, email, phone, courseName }) {
   const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
-  await getTransporter().sendMail({
+  const { error } = await getClient().emails.send({
     from: process.env.SMTP_FROM,
     to: adminEmail,
     subject: `New paid registration — ${courseName}`,
@@ -42,6 +36,7 @@ async function sendAdminNotificationEmail({ name, email, phone, courseName }) {
       `Email: ${email}\n` +
       `Course: ${courseName}`
   });
+  if (error) throw new Error(error.message || 'Resend failed to send admin notification.');
 }
 
 module.exports = { sendUserRegistrationEmail, sendAdminNotificationEmail };
